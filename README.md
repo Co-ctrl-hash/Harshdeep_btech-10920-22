@@ -3,8 +3,8 @@
 A full-stack task management application featuring a drag-and-drop Kanban board, user authentication, and responsive design. This project was developed as an SDE Intern Assignment for OZi Technologies.
 
 ## 🚀 Live Demo
-- **Frontend:** [Deploy on Vercel/Netlify]
-- **Backend:** [Deploy on Render/Railway]
+- **Frontend:** https://harshdeep-btech-10920-22.vercel.app/
+- **Backend:** https://task-manager-api-e81e.onrender.com
 - **GitHub Repository:** https://github.com/Co-ctrl-hash/Harshdeep_btech-10920-22
 
 ## ✨ Features
