@@ -1,45 +1,40 @@
-# Task Management System (Kanban Based)
+# Task Management System (Kanban Board)
 
-A full-stack task management application with user authentication and Kanban board functionality.
+A full-stack task management application featuring a drag-and-drop Kanban board, user authentication, and responsive design. This project was developed as an SDE Intern Assignment for OZi Technologies.
 
-## Features
+## 🚀 Live Demo
+- **Frontend:** [Deploy on Vercel/Netlify]
+- **Backend:** [Deploy on Render/Railway]
+- **GitHub Repository:** https://github.com/Co-ctrl-hash/Harshdeep_btech-10920-22
 
-### Core Features
-- ✅ User authentication (signup, login, logout)
-- ✅ Update user profile (name, email, password)
-- ✅ Soft delete user account
-- ✅ Last login tracking
-- ✅ Active/inactive user management
-- ✅ JWT-based protected routes
-- ✅ User-specific tasks
-- ✅ Kanban board with 3 columns (Pending, In Progress, Completed)
-- ✅ Drag and drop tasks between columns
-- ✅ Create, edit, and delete tasks
-- ✅ Filter tasks by status
-- ✅ Responsive design
+## ✨ Features
+- **User Authentication:** Secure Sign Up, Login, and Logout functionality
+- **Profile Management:** Users can update and delete their profiles
+- **Kanban Board:** Visual task management with **Pending**, **In Progress**, and **Completed** columns
+- **Drag & Drop:** Interactive task movement between status columns
+- **Task Management:** Create, Read, Update, and Delete (CRUD) tasks
+- **Filtering:** Filter tasks by status
+- **Responsive Design:** Optimized for both desktop and mobile views
 
-### Advanced Features
+## 🎯 Advanced Features
 - 🎯 **Activity/Audit Log** - Track all user actions with detailed activity history
 - ⚡ **Optimistic UI Updates** - Instant feedback with automatic rollback on errors
 - 📅 **Due-Date Intelligence** - Visual indicators for overdue, due today, and upcoming tasks
 - 🗑️ **Soft Delete** - Non-destructive deletion for both users and tasks
 - 🛡️ **Global Error Handling** - Centralized error management with proper status codes
 
-## Tech Stack
+## � Screenshots
+![Login Screen](screenshots/login.png)
+*Login Screen*
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB (with Mongoose)
-- JWT for authentication
-- bcryptjs for password hashing
+![Kanban Board](screenshots/kanban-board.png)
+*Kanban Board Dashboard*
 
-### Frontend
-- React (with Vite)
-- React Router for navigation
-- Axios for API calls
-- HTML5 Drag and Drop API
-- CSS for styling
+## �🛠️ Tech Stack
+- **Frontend:** React.js, Vite, HTML5 Drag and Drop API
+- **Backend:** Node.js, Express.js, MongoDB (Mongoose)
+- **Authentication:** JWT (JSON Web Tokens)
+- **Version Control:** Git & GitHub
 
 ## Project Structure
 
@@ -89,14 +84,20 @@ OZi/
     └── package.json
 ```
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
-### Prerequisites
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Co-ctrl-hash/Harshdeep_btech-10920-22.git
+cd Harshdeep_btech-10920-22
+```
+
+### 2. Prerequisites
 - Node.js (v14 or higher)
 - MongoDB Atlas account (or local MongoDB installation)
 - npm or yarn
 
-### Backend Setup
+### 3. Backend Setup
 
 1. Navigate to backend directory:
 ```bash
@@ -122,7 +123,7 @@ npm start
 
 The backend will run on `http://localhost:5000`
 
-### Frontend Setup
+### 4. Frontend Setup
 
 1. Navigate to frontend directory:
 ```bash
@@ -141,7 +142,7 @@ npm run dev
 
 The frontend will run on `http://localhost:3000`
 
-## Usage
+## 🎮 Usage
 
 1. **Sign Up**: Create a new account with name, email, and password
 2. **Login**: Login with your credentials
@@ -434,13 +435,25 @@ NODE_ENV=development
 - Task collaboration
 - Dark mode
 
-## License
+---
+
+## 👨‍💻 Author
+
+**Harshdeep Singh**
+- GitHub: [@Co-ctrl-hash](https://github.com/Co-ctrl-hash)
+- Repository: [Harshdeep_btech-10920-22](https://github.com/Co-ctrl-hash/Harshdeep_btech-10920-22)
+
+## 📝 Assignment Details
+
+**Developed for:** OZi Technologies  
+**Position:** SDE Intern Assignment  
+**Project Type:** Full-Stack Task Management System (Kanban Based)
+
+---
+
+## 📄 License
 
 ISC
-
-## Author
-
-Your Name
 
 ---
 
