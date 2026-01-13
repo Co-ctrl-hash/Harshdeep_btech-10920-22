@@ -36,11 +36,11 @@ A full-stack task management application featuring a drag-and-drop Kanban board,
 - **Authentication:** JWT (JSON Web Tokens)
 - **Version Control:** Git & GitHub
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-OZi/
-├── backend/
+Harshdeep_btech-10920-22/
+├── backend/            # Backend API (Node.js/Express)
 │   ├── config/
 │   │   └── db.js              # Database connection
 │   ├── controllers/
@@ -61,27 +61,30 @@ OZi/
 │   ├── server.js              # Entry point with error handling
 │   └── package.json
 │
-└── frontend/
-    ├── src/
-    │   ├── components/
-    │   │   ├── TaskCard.jsx    # Task card with due-date intelligence
-    │   │   ├── TaskModal.jsx   # Task create/edit modal
-    │   │   └── ActivityLog.jsx # Activity log component
-    │   ├── context/
-    │   │   └── AuthContext.jsx # Authentication context
-    │   ├── pages/
-    │   │   ├── Login.jsx       # Login page
-    │   │   ├── Signup.jsx      # Signup page
-    │   │   ├── Dashboard.jsx   # Kanban board with optimistic UI
-    │   │   └── Profile.jsx     # User profile edit/delete
-    │   ├── services/
-    │   │   └── api.js          # API service with interceptors
-    │   ├── App.jsx             # Main app component
-    │   ├── main.jsx            # Entry point
-    │   └── index.css           # Global styles
-    ├── index.html
-    ├── vite.config.js
-    └── package.json
+├── frontend/           # Frontend (React)
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── TaskCard.jsx    # Task card with due-date intelligence
+│   │   │   ├── TaskModal.jsx   # Task create/edit modal
+│   │   │   └── ActivityLog.jsx # Activity log component
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx # Authentication context
+│   │   ├── pages/
+│   │   │   ├── Login.jsx       # Login page
+│   │   │   ├── Signup.jsx      # Signup page
+│   │   │   ├── Dashboard.jsx   # Kanban board with optimistic UI
+│   │   │   └── Profile.jsx     # User profile edit/delete
+│   │   ├── services/
+│   │   │   └── api.js          # API service with interceptors
+│   │   ├── App.jsx             # Main app component
+│   │   ├── main.jsx            # Entry point
+│   │   └── index.css           # Global styles
+│   ├── index.html
+│   ├── vite.config.js
+│   └── package.json
+│
+├── .gitignore
+└── README.md
 ```
 
 ## ⚙️ Installation & Setup
