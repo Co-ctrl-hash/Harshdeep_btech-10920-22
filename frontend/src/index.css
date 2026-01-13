@@ -258,6 +258,7 @@ body {
   margin-bottom: 10px;
 }
 
+/* Task due date with badge */
 .task-due-date {
   color: #999;
   font-size: 12px;
@@ -267,6 +268,7 @@ body {
   gap: 8px;
 }
 
+/* Due date intelligence badges */
 .due-badge {
   display: inline-block;
   padding: 2px 8px;
@@ -276,22 +278,26 @@ body {
   text-transform: uppercase;
 }
 
+/* Overdue badge - red with pulse animation */
 .due-badge.overdue {
   background: #fee2e2;
   color: #dc2626;
   animation: pulse 2s infinite;
 }
 
+/* Due today badge - yellow/orange */
 .due-badge.due-today {
   background: #fef3c7;
   color: #d97706;
 }
 
+/* Due soon badge - blue */
 .due-badge.due-soon {
   background: #dbeafe;
   color: #2563eb;
 }
 
+/* Pulse animation for overdue tasks */
 @keyframes pulse {
   0%, 100% {
     opacity: 1;

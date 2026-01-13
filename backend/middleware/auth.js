@@ -1,6 +1,16 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+/**
+ * Authentication Middleware
+ * @middleware
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express next middleware function
+ * @returns {void}
+ * @description Protects routes by verifying JWT token and checking user status
+ * @throws {401} If token is missing, invalid, or user is inactive
+ */
 const protect = async (req, res, next) => {
   let token;
 

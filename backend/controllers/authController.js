@@ -1,16 +1,31 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// Generate JWT Token
+/**
+ * Generate JWT Token
+ * @param {string} id - User ID to encode in token
+ * @returns {string} JWT token with 30-day expiration
+ * @description Creates a signed JWT token for user authentication
+ */
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: '30d'
   });
 };
 
-// @desc    Register new user
-// @route   POST /api/auth/signup
-// @access  Public
+/**
+ * Register new user
+ * @route   POST /api/auth/signup
+ * @access  Public
+ * @param {Object} req - Express request object
+ * @param {Object} req.body - Request body
+ * @param {string} req.body.name - User's full name
+ * @param {string} req.body.email - User's email address
+ * @param {string} req.body.password - User's password (will be hashed)
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response with user data and JWT token
+ * @description Creates a new user account with hashed password and returns authentication token
+ */
 const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -48,9 +63,18 @@ const signup = async (req, res) => {
   }
 };
 
-// @desc    Login user
-// @route   POST /api/auth/login
-// @access  Public
+/**
+ * Login user
+ * @route   POST /api/auth/login
+ * @access  Public
+ * @param {Object} req - Express request object
+ * @param {Object} req.body - Request body
+ * @param {string} req.body.email - User's email address
+ * @param {string} req.body.password - User's password
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response with user data and JWT token
+ * @description Authenticates user credentials and updates last login timestamp
+ */
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -91,9 +115,16 @@ const login = async (req, res) => {
   }
 };
 
-// @desc    Get current user
-// @route   GET /api/auth/me
-// @access  Private
+/**
+ * Get current user profile
+ * @route   GET /api/auth/me
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {Object} req.user - Authenticated user from middleware
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response with user profile data
+ * @description Returns authenticated user's profile information
+ */
 const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select('-password');
@@ -103,9 +134,19 @@ const getMe = async (req, res) => {
   }
 };
 
-// @desc    Update user profile
-// @route   PUT /api/auth/profile
-// @access  Private
+/**
+ * Update user profile
+ * @route   PUT /api/auth/profile
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {Object} req.body - Request body
+ * @param {string} [req.body.name] - Updated name
+ * @param {string} [req.body.email] - Updated email
+ * @param {string} [req.body.password] - Updated password
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response with updated user data
+ * @description Updates user profile fields (name, email, password)
+ */
 const updateProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -142,9 +183,16 @@ const updateProfile = async (req, res) => {
   }
 };
 
-// @desc    Delete user profile
-// @route   DELETE /api/auth/profile
-// @access  Private
+/**
+ * Delete user profile (soft delete)
+ * @route   DELETE /api/auth/profile
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {Object} req.user - Authenticated user from middleware
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON response confirming deletion
+ * @description Soft deletes user account by setting is_active to false
+ */
 const deleteProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);

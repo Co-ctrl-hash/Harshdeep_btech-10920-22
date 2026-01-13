@@ -1,9 +1,17 @@
 const Task = require('../models/Task');
 const Activity = require('../models/Activity');
 
-// @desc    Get all tasks for logged-in user
-// @route   GET /api/tasks?status=pending
-// @access  Private
+/**
+ * Get all tasks for logged-in user
+ * @route   GET /api/tasks?status=pending
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {Object} req.query - Query parameters
+ * @param {string} [req.query.status] - Filter by status (pending, in-progress, completed)
+ * @param {Object} res - Express response object
+ * @returns {Array} JSON array of task objects
+ * @description Retrieves all non-deleted tasks for authenticated user with optional status filter
+ */
 const getTasks = async (req, res) => {
   try {
     const { status } = req.query;
@@ -27,9 +35,16 @@ const getTasks = async (req, res) => {
   }
 };
 
-// @desc    Get single task
-// @route   GET /api/tasks/:id
-// @access  Private
+/**
+ * Get single task by ID
+ * @route   GET /api/tasks/:id
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {string} req.params.id - Task ID
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON task object
+ * @description Retrieves a single non-deleted task if it belongs to authenticated user
+ */
 const getTask = async (req, res) => {
   try {
     const task = await Task.findOne({ _id: req.params.id, is_deleted: false });
@@ -49,9 +64,20 @@ const getTask = async (req, res) => {
   }
 };
 
-// @desc    Create new task
-// @route   POST /api/tasks
-// @access  Private
+/**
+ * Create new task
+ * @route   POST /api/tasks
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {Object} req.body - Request body
+ * @param {string} req.body.title - Task title
+ * @param {string} req.body.description - Task description
+ * @param {string} [req.body.status] - Task status (defaults to 'pending')
+ * @param {Date} req.body.due_date - Task due date
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON created task object
+ * @description Creates a new task and logs the activity
+ */
 const createTask = async (req, res) => {
   try {
     const { title, description, status, due_date } = req.body;
@@ -83,9 +109,17 @@ const createTask = async (req, res) => {
   }
 };
 
-// @desc    Update task
-// @route   PUT /api/tasks/:id
-// @access  Private
+/**
+ * Update task
+ * @route   PUT /api/tasks/:id
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {string} req.params.id - Task ID to update
+ * @param {Object} req.body - Request body with fields to update
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON updated task object
+ * @description Updates task fields and logs activity (status_changed or task_updated)
+ */
 const updateTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -131,9 +165,16 @@ const updateTask = async (req, res) => {
   }
 };
 
-// @desc    Delete task
-// @route   DELETE /api/tasks/:id
-// @access  Private
+/**
+ * Delete task (soft delete)
+ * @route   DELETE /api/tasks/:id
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {string} req.params.id - Task ID to delete
+ * @param {Object} res - Express response object
+ * @returns {Object} JSON success message
+ * @description Soft deletes task by setting is_deleted flag and logs activity
+ */
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -165,7 +206,15 @@ const deleteTask = async (req, res) => {
   }
 };
 
-// Get user activities (last 5)
+/**
+ * Get user activities (last 5)
+ * @route   GET /api/tasks/activities
+ * @access  Private (requires authentication)
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @returns {Array} JSON array of last 5 activity objects
+ * @description Retrieves the 5 most recent activities for authenticated user
+ */
 const getActivities = async (req, res) => {
   try {
     const activities = await Activity.find({ user: req.user._id })

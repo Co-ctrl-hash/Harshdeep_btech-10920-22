@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
 import { taskAPI } from '../services/api';
 
+/**
+ * ActivityLog Component
+ * @component
+ * @description Displays the last 5 user activities with icons, colors, and relative timestamps
+ * @returns {JSX.Element} Activity log UI
+ */
 const ActivityLog = () => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,6 +15,12 @@ const ActivityLog = () => {
     fetchActivities();
   }, []);
 
+  /**
+   * Fetch user activities from API
+   * @async
+   * @function fetchActivities
+   * @description Retrieves last 5 activities and updates component state
+   */
   const fetchActivities = async () => {
     try {
       const response = await taskAPI.getActivities();
@@ -20,6 +32,12 @@ const ActivityLog = () => {
     }
   };
 
+  /**
+   * Get emoji icon for activity type
+   * @function getActionIcon
+   * @param {string} action - Activity action type
+   * @returns {string} Emoji icon
+   */
   const getActionIcon = (action) => {
     switch (action) {
       case 'task_created':
@@ -35,6 +53,12 @@ const ActivityLog = () => {
     }
   };
 
+  /**
+   * Get color for activity type
+   * @function getActionColor
+   * @param {string} action - Activity action type
+   * @returns {string} Hex color code
+   */
   const getActionColor = (action) => {
     switch (action) {
       case 'task_created':
@@ -50,6 +74,13 @@ const ActivityLog = () => {
     }
   };
 
+  /**
+   * Format timestamp as relative time
+   * @function formatTime
+   * @param {string|Date} date - ISO date string or Date object
+   * @returns {string} Relative time string (e.g., "2m ago", "3h ago")
+   * @description Converts absolute timestamp to human-readable relative time
+   */
   const formatTime = (date) => {
     const now = new Date();
     const activityDate = new Date(date);
