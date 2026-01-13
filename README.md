@@ -23,14 +23,7 @@ A full-stack task management application featuring a drag-and-drop Kanban board,
 - 🗑️ **Soft Delete** - Non-destructive deletion for both users and tasks
 - 🛡️ **Global Error Handling** - Centralized error management with proper status codes
 
-## � Screenshots
-![Login Screen](screenshots/login.png)
-*Login Screen*
-
-![Kanban Board](screenshots/kanban-board.png)
-*Kanban Board Dashboard*
-
-## �🛠️ Tech Stack
+## 🛠️ Tech Stack
 - **Frontend:** React.js, Vite, HTML5 Drag and Drop API
 - **Backend:** Node.js, Express.js, MongoDB (Mongoose)
 - **Authentication:** JWT (JSON Web Tokens)
